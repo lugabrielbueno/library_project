@@ -28,4 +28,5 @@ Route::post('/books/{book}/edit', [App\Http\Controllers\BookStorageController::c
 Route::get('/books/{book}/delete', [App\Http\Controllers\BookStorageController::class, 'delete'])->name('book.destroy');
 Route::delete('/books/{book}/delete', [App\Http\Controllers\BookStorageController::class, 'delete_book'])->name('book.destroy');
 Route::get('/books', [App\Http\Controllers\BookStorageController::class, 'list'])->name('book.index');
+Route::get('/books', [App\Http\Controllers\BookStorageController::class, 'search'])->name('book.index');
 

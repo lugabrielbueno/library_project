@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -92,6 +93,32 @@ class BookStorageController extends Controller
 			} else {
 				return redirect("/books/{$book_id}/edit")->with('message', "Failed to update book, try again.")->with('status', 0);
 			}
+		}
+	}
+	public function search(Request $request)
+	{
+		if ($request->method() == 'GET') {
+
+			$books = Book::where('id', '>', 0);
+			$fields = ['title', 'author', "publication_date"];
+			foreach ($fields as $field) {
+				if (!empty($request->$field)) {
+					$books = $books->where($field, "LIKE", "$request->$field");
+				}
+			}
+			//if (!empty($request->author)) {
+			//	$filtered = $books->where("author", 'LIKE', "%{$request->author}%");
+			//}
+			//if (!empty($request->title)) {
+			//	$filtered = $books->where("title", 'LIKE', "%{$request->title}%");
+			//}
+			//if (!empty($request->pub_date)) {
+			//	$filtered = $books->where("publication_date", '=', "{$request->pub_date}");
+			//}
+
+			return view("books.list", [
+				"books" => $books->get()
+			]);
 		}
 	}
 }

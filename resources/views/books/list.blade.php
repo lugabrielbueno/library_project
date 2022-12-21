@@ -4,8 +4,17 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-12">
+
 			<div class="card">
-				<div class="card-header">{{ __('Detail book') }}</div>
+				<div class="card-header">{{ __('Search books') }}</div>
+
+				<div class="card-body">
+					@include('books.search_form')
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header">{{ __('List books') }}</div>
 
 				<div class="card-body">
 					@if (session('status'))
@@ -13,6 +22,11 @@
 						{{ session('status') }}
 					</div>
 					@endif
+
+					@if (empty($books))
+					{{ __('No books found.')}}
+					@else
+
 
 					<div class='table-scrollable'>
 						<table class='table table-hover'>
@@ -32,6 +46,7 @@
 							</tbody>
 						</table>
 					</div>
+					@endif
 				</div>
 			</div>
 		</div>
