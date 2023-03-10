@@ -75,10 +75,12 @@
 			<div class='col-md-12'>
 				<div class='row'>
 					@include('menu')
+
 					@yield('content')
 				</div>
 			</div>
-		</main>
+	</div>
+	</main>
 	</div>
 </body>
 
