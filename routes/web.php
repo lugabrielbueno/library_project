@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/books/create', [App\Http\Controllers\BookStorageController::class, 'create'])->name('book.create');
+Route::post('/books/create', [App\Http\Controllers\BookStorageController::class, 'create'])->name('book.create');
 Route::get('/books/{book}/detail', [App\Http\Controllers\BookStorageController::class, 'detail'])->name('book.show');
 Route::get('/books/{book}/edit', [App\Http\Controllers\BookStorageController::class, 'update'])->name('book.edit');
 Route::post('/books/{book}/edit', [App\Http\Controllers\BookStorageController::class, 'update_book'])->name('book.edit');
@@ -29,4 +30,3 @@ Route::get('/books/{book}/delete', [App\Http\Controllers\BookStorageController::
 Route::delete('/books/{book}/delete', [App\Http\Controllers\BookStorageController::class, 'delete_book'])->name('book.destroy');
 Route::get('/books', [App\Http\Controllers\BookStorageController::class, 'list'])->name('book.index');
 Route::get('/books', [App\Http\Controllers\BookStorageController::class, 'search'])->name('book.index');
-

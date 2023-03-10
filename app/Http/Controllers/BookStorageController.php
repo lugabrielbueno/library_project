@@ -24,9 +24,25 @@ class BookStorageController extends Controller
 	 *
 	 * Create a new book on database
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		return view('books.create');
+		$book = new Book();
+		if ($request->method() == 'POST') {
+			$book->title = $request->input('title');
+			$book->author = $request->input('author');
+			$book->publication_date = $request->input('pub_date');
+			$book->edition_date = $request->input('edition_date');
+			$book->pages = $request->input('pages');
+
+			$response = $book->save();
+			if ($response) {
+				return redirect("/books/create")->with('message', "Book created successfully ! ")->with('status', 1);
+			} else {
+				return redirect("/books/create")->with('message', "Failed to create book, try again.")->with('status', 0);
+			}
+		} else {
+			return view('books.create');
+		}
 	}
 
 	public function detail($book)
