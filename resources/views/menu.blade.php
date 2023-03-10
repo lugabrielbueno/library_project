@@ -1,10 +1,11 @@
+@auth
 <div class="d-flex  flex-column p-3 bg-grey border">
 	<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
 		<span class="fs-5 fw-semibold">Library</span>
 	</a>
 	<ul class="list-unstyled ">
 		<li class="mb-1">
-			<button type='button' style='width:100%;text-align:left;' class="btn btn-dark text-left" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+			<button name='btn-books' type='button' style='width:100%;text-align:left;' class="btn btn-dark text-left" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
 				Books
 				<i class='fa fa-angle-right'></i>
 			</button>
@@ -18,7 +19,7 @@
 			</div>
 		</li>
 		<li class="mb-1">
-			<button style='width:100%;text-align:left;' class="btn btn-dark  collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+			<button name='btn-books' style='width:100%;text-align:left;' class="btn btn-dark  collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
 				Readers
 				<i class='fa fa-angle-right'></i>
 			</button>
@@ -31,7 +32,7 @@
 		</li>
 		<li class="border-top my-3"></li>
 		<li class="mb-1">
-			<button style='width:100%;text-align:left;' class="btn btn-dark  collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+			<button name='btn-books' style='width:100%;text-align:left;' class="btn btn-dark  collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
 				Account
 				<i class='fa fa-angle-right'></i>
 			</button>
@@ -46,3 +47,4 @@
 		</li>
 	</ul>
 </div>
+@endauth
