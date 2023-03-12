@@ -13,16 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+/* 
+ * Route::get('/', function () {
+ *	return view('welcome');
+ *});
+ */
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/books/create', [App\Http\Controllers\BookStorageController::class, 'create'])->name('book.create');
-Route::post('/books/create', [App\Http\Controllers\BookStorageController::class, 'create'])->name('book.create');
+Route::post('/books', [App\Http\Controllers\BookStorageController::class, 'store'])->name('book.store');
 Route::get('/books/{book}/detail', [App\Http\Controllers\BookStorageController::class, 'detail'])->name('book.show');
 Route::get('/books/{book}/edit', [App\Http\Controllers\BookStorageController::class, 'update'])->name('book.edit');
 Route::post('/books/{book}/edit', [App\Http\Controllers\BookStorageController::class, 'update_book'])->name('book.edit');

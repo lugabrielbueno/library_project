@@ -12,6 +12,7 @@
 				</button>
 				<div class="collapse " id="home-collapse">
 					<ul class="btn-toggle-nav list-unstyled ">
+						<li><a href="/books" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> List all</a></li>
 						<li><a href="/books/create" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> Register new </a></li>
 						<li><a href="#" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> Books in use</a></li>
 						<li><a href="#" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> Book in</a></li>

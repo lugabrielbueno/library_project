@@ -20,14 +20,20 @@ class BookStorageController extends Controller
 	}
 
 
+	public function create()
+	{
+		return view('books.create');
+	}
+
+
 	/**
-	 *
 	 * Create a new book on database
 	 */
-	public function create(Request $request)
+	public function store(Request $request)
+
 	{
-		$book = new Book();
 		if ($request->method() == 'POST') {
+			$book = new Book();
 			$book->title = $request->input('title');
 			$book->author = $request->input('author');
 			$book->publication_date = $request->input('pub_date');
@@ -44,6 +50,7 @@ class BookStorageController extends Controller
 			return view('books.create');
 		}
 	}
+
 
 	public function detail($book)
 	{
