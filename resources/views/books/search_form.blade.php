@@ -1,5 +1,5 @@
 <div class='col-md-8'>
-	<form action='/books' method='GET'>
+	<form action='/books/search' method='GET'>
 		@csrf
 		<div class='row'>
 			<div class='col-md-7'>

@@ -20,8 +20,9 @@
 						</div>
 						@endif
 
-						<form method='POST' action="/books/{{$book->id}}/edit">
+						<form method='POST' action="/books/{{$book->id}}">
 							@csrf
+							@method('PUT')
 							<div class='row'>
 								<div class='col-md-12'>
 									<div class='form-group'>
@@ -56,8 +57,8 @@
 								</div>
 								<div class='row'>
 									<div class='col-md-12 p-2'>
-										<a class='btn btn-secondary m-2' href='/books/{{ $book->id }}/detail'><i class='fa fa-arrow-left'></i> Back</a>
-										<button class='btn btn-success m-2 ' style='color:white;' type='submit' name='update_book'><i class='fa fa-check'></i> Update</button>
+										<a class='btn btn-secondary m-2' href='/books/{{ $book->id }}'><i class='fa fa-arrow-left'></i> Back</a>
+										<button class='btn btn-success m-2 ' style='color:white;' type='submit'><i class='fa fa-check'></i> Update</button>
 									</div>
 								</div>
 							</div>

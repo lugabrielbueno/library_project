@@ -52,7 +52,7 @@ class BookStorageController extends Controller
 	}
 
 
-	public function detail($book)
+	public function show($book)
 	{
 		$book = Book::find($book);
 		return view('books.detail', [
@@ -60,7 +60,7 @@ class BookStorageController extends Controller
 		]);
 	}
 
-	public function update($book)
+	public function edit($book)
 	{
 		$book = Book::find($book);
 		return view('books.update', [
@@ -78,10 +78,10 @@ class BookStorageController extends Controller
 	}
 
 
-	public function delete_book(Request $request, $book_id)
+	public function destroy(Request $request, $book_id)
 	{
 		$book = Book::find($book_id);
-		if ($request->method() == 'delete') {
+		if ($request->method() == 'DELETE') {
 
 			$response = $book->delete();
 			if ($response) {
@@ -94,16 +94,17 @@ class BookStorageController extends Controller
 
 	public function list()
 	{
+
 		$books = Book::all();
 		return view("books.list", [
 			'books' => $books
 		]);
 	}
 
-	public function update_book(Request $request, $book_id)
+	public function update(Request $request, $book_id)
 	{
 		$book = Book::find($book_id);
-		if ($request->method() == 'POST') {
+		if ($request->method() == 'PUT') {
 			$book->title = $request->input('title');
 			$book->author = $request->input('author');
 			$book->publication_date = $request->input('pub_date');
@@ -122,25 +123,20 @@ class BookStorageController extends Controller
 	{
 		if ($request->method() == 'GET') {
 
-			$books = Book::where('id', '>', 0);
-			$fields = ['title', 'author', "publication_date"];
-			foreach ($fields as $field) {
-				if (!empty($request->$field)) {
-					$books = $books->where($field, "LIKE", "$request->$field");
-				}
+			$books_query = Book::query();
+			if ($request->filled('title')) {
+				$books_query->where('title', "LIKE", "%$request->title%");
 			}
-			//if (!empty($request->author)) {
-			//	$filtered = $books->where("author", 'LIKE', "%{$request->author}%");
-			//}
-			//if (!empty($request->title)) {
-			//	$filtered = $books->where("title", 'LIKE', "%{$request->title}%");
-			//}
-			//if (!empty($request->pub_date)) {
-			//	$filtered = $books->where("publication_date", '=', "{$request->pub_date}");
-			//}
+			if ($request->filled('author')) {
+
+				$books_query->where('author', "LIKE", "%$request->author%");
+			}
+			if ($request->filled('publication_date')) {
+				$books_query->where('publication_date',  $request->publication_date);
+			}
 
 			return view("books.list", [
-				"books" => $books->get()
+				"books" => $books_query->get()
 			]);
 		}
 	}

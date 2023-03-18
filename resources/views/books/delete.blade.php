@@ -10,15 +10,16 @@
 
 					<div class="card-body">
 
-						<form method='POST' action='/books/{{$book->id}}/delete'>
+						<form method='POST' action='/books/{{ $book->id }}'>
 							@csrf
+							@method('DELETE')
 							<div class='row'>
 								<h4>
-									Are you sure you want to delete the book {{ $book->title }} ?
+									Are you sure you want to delete the book <strong>{{ $book->title }}</strong> ?
 								</h4>
 								<div class='col-md-12 p-2'>
 									<a class='btn btn-secondary m-2' href='/books/{{$book->id}}/detail'><i class='fa fa-arrow-left'></i> Back</a>
-									<a class='btn btn-danger m-2 ' style='color:white;' href="{{ url('/books/'.$book->id.'/delete') }}" name='delete_book'><i class='fa fa-times'></i> Delete</a>
+									<button type='submit' class='btn btn-danger m-2 ' style='color:white;'><i class='fa fa-times'></i> Delete</button>
 								</div>
 							</div>
 						</form>

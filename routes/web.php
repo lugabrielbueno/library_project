@@ -23,12 +23,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/books/create', [App\Http\Controllers\BookStorageController::class, 'create'])->name('book.create');
-Route::post('/books', [App\Http\Controllers\BookStorageController::class, 'store'])->name('book.store');
-Route::get('/books/{book}/detail', [App\Http\Controllers\BookStorageController::class, 'detail'])->name('book.show');
-Route::get('/books/{book}/edit', [App\Http\Controllers\BookStorageController::class, 'update'])->name('book.edit');
-Route::post('/books/{book}/edit', [App\Http\Controllers\BookStorageController::class, 'update_book'])->name('book.edit');
-Route::get('/books/{book}/delete', [App\Http\Controllers\BookStorageController::class, 'delete'])->name('book.destroy');
-Route::delete('/books/{book}/delete', [App\Http\Controllers\BookStorageController::class, 'delete_book'])->name('book.destroy');
 Route::get('/books', [App\Http\Controllers\BookStorageController::class, 'list'])->name('book.index');
-Route::get('/books', [App\Http\Controllers\BookStorageController::class, 'search'])->name('book.index');
+Route::get('/books/search', [App\Http\Controllers\BookStorageController::class, 'search'])->name('book.index');
+Route::post('/books', [App\Http\Controllers\BookStorageController::class, 'store'])->name('book.store');
+
+Route::get('/books/create', [App\Http\Controllers\BookStorageController::class, 'create'])->name('book.create');
+Route::put('/books/{book}', [App\Http\Controllers\BookStorageController::class, 'update'])->name('book.update');
+Route::get('/books/{book}', [App\Http\Controllers\BookStorageController::class, 'show'])->name('book.detail');
+Route::delete('/books/{book}', [App\Http\Controllers\BookStorageController::class, 'destroy'])->name('book.destroy');
+
+Route::get('/books/{book}/edit', [App\Http\Controllers\BookStorageController::class, 'edit'])->name('book.edit');
+Route::get('/books/{book}/delete', [App\Http\Controllers\BookStorageController::class, 'delete'])->name('book.delete');

@@ -18,9 +18,14 @@
 					<div class="card-header">{{ __('List books') }}</div>
 
 					<div class="card-body">
-						@if (session('status'))
+						@if (session('status') == 1 and session()->has('message'))
 						<div class="alert alert-success" role="alert">
-							{{ session('status') }}
+							{{ session()->get('message') }}
+						</div>
+						@endif
+						@if (session('status') == 0 and session()->has('message'))
+						<div class="alert alert-warning" role="alert">
+							{{ session()->get('message') }}
 						</div>
 						@endif
 
@@ -40,8 +45,8 @@
 								<tbody>
 									@foreach($books as $book)
 									<tr>
-										<td><a class='text-dark text-decoration-none' href='/books/{{ $book->id }}/detail'>{{ $book->title }}</a></td>
-										<td><a class='text-dark text-decoration-none' href='/books/{{ $book->id }}/detail'>{{ $book->publication_date }}</a></td>
+										<td><a class='text-dark text-decoration-none' href='/books/{{ $book->id }}'>{{ $book->title }}</a></td>
+										<td><a class='text-dark text-decoration-none' href='/books/{{ $book->id }}'>{{ $book->publication_date }}</a></td>
 									</tr>
 									@endforeach
 								</tbody>
