@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class='col-md-12'>
+<div class="col-md-12">
 	<div class="card">
-		<div class="card-header">{{ __('Search books') }}</div>
+		<div class="card-header">{{ __('Search readers') }}</div>
 		<div class="card-body">
-			@include('books.search_form')
+			@include('readers.search_form')
 		</div>
 	</div>
 	<div class="card">
-		<div class="card-header">{{ __('List books') }}</div>
+		<div class="card-header">{{ __('List readers') }}</div>
 		<div class="card-body">
 			@if (session('status') == 1 and session()->has('message'))
 			<div class="alert alert-success" role="alert">
@@ -23,22 +22,24 @@
 			</div>
 			@endif
 
-			@if (empty($books))
-			{{ __('No books found.')}}
+			@if (empty($readers))
+			{{ __('No readers found.')}}
 			@else
+
+
 			<div class='table-scrollable'>
 				<table class='table table-hover'>
 					<thead>
 						<tr>
-							<th>Title</th>
-							<th>Publication date</th>
+							<th>Reader</th>
+							<th>Email</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($books as $book)
+						@foreach($readers as $reader)
 						<tr>
-							<td><a class='text-dark text-decoration-none' href='/books/{{ $book->id }}'>{{ $book->title }}</a></td>
-							<td><a class='text-dark text-decoration-none' href='/books/{{ $book->id }}'>{{ $book->publication_date }}</a></td>
+							<td><a class='text-dark text-decoration-none' href='/readers/{{ $reader->id }}'>{{ $reader->name }}</a></td>
+							<td><a class='text-dark text-decoration-none' href='/readers/{{ $reader->id }}'>{{ $reader->email }}</a></td>
 						</tr>
 						@endforeach
 					</tbody>

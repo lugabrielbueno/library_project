@@ -33,6 +33,16 @@ class BookStorageController extends Controller
 
 	{
 		if ($request->method() == 'POST') {
+
+			$request->validate([
+				'title' => ['required', 'max:255'],
+				'author' => ['required', 'max:100'],
+				'pages' => ['required'],
+				'pub_date' => ['required'],
+				'edition_date' => ['required']
+			]);
+
+
 			$book = new Book();
 			$book->title = $request->input('title');
 			$book->author = $request->input('author');
@@ -105,6 +115,16 @@ class BookStorageController extends Controller
 	{
 		$book = Book::find($book_id);
 		if ($request->method() == 'PUT') {
+
+			$request->validate([
+				'title' => ['required', 'max:255'],
+				'author' => ['required', 'max:100'],
+				'pages' => ['required'],
+				'pub_date' => ['required'],
+				'edition_date' => ['required']
+			]);
+
+
 			$book->title = $request->input('title');
 			$book->author = $request->input('author');
 			$book->publication_date = $request->input('pub_date');
