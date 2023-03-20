@@ -51,3 +51,8 @@ Route::delete('/readers/{reader}', [App\Http\Controllers\ReadersController::clas
 
 Route::get('/readers/{reader}/edit', [App\Http\Controllers\ReadersController::class, 'edit'])->name('reader.edit');
 Route::get('/readers/{reader}/delete', [App\Http\Controllers\ReadersController::class, 'delete'])->name('reader.delete');
+
+
+#managebooks
+Route::get('/managebooks/create', [App\Http\Controllers\ManageBooksController::class, 'create'])->name('managebook.create');
+Route::post('/readers/{reader}/delete', [App\Http\Controllers\ManageBooksController::class, 'store'])->name('managebook.store');

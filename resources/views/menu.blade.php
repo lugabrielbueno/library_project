@@ -14,7 +14,7 @@
 				<li><a href="/books/create" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> Register new </a></li>
 				<li><a href="#" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> Books in use</a></li>
 				<li><a href="#" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> Book in</a></li>
-				<li><a href="#" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> Book out</a></li>
+				<li><a href="/managebooks/create" style='width:100%;text-align:left' class="link-dark btn btn-light "><i class='fa fa-circle'></i> Book out</a></li>
 			</ul>
 		</div>
 	</li>
