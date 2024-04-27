@@ -6,8 +6,8 @@
 	<div class='col-md-12'>
 		<div class='table-scrollable'>
 			<table class='table table-hover'>
-				<tbody>
-					<tr>
+				<tbody id='field_book'>
+					<tr class='field_book'>
 						<th>Book Title</th>
 						<td>
 							<select class='form-control select2me' name='book' id='book'>
@@ -24,8 +24,8 @@
 	</div>
 
 	<div class='col-md-12'>
-		<button type='' class='btn btn-primary m-2' onclick='addBookField()'><i class='fa fa-plus'></i></button>
-		<button type='' class='btn btn-secondary m-2' onclick='removeBookFileld()'><i class='fa fa-minus'></i></button>
+		<button id='add_field' onclick='addBookField()' type='button' class='btn btn-primary m-2' ><i class='fa fa-plus'></i></button>
+		<button id='remove_field' onclick='removeBookField()' type='button' class='btn btn-secondary m-2' ><i class='fa fa-minus'></i></button>
 	</div>
 	<div class='col-md-6'>
 		<div class='form-group'>
@@ -33,5 +33,7 @@
 			<input class='form-control' name='reader' id='reader'>
 		</div>
 	</div>
+	
 </form>
+
 @endsection

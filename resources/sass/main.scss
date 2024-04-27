@@ -1,0 +1,49 @@
+
+body {
+    color: white;
+    min-height: 100vh;
+}
+main {
+    background-color: $light-gray;
+    min-height: 100vh;
+}
+input {
+    background-color: white;
+}
+
+main .card {
+    background-color: $light-gray;
+    color: $dark-blue-gray;
+}
+
+main .card-table {
+    background-color:$light-gray;
+    color: $dark-blue-gray;
+    .table-hover {
+        color: $dark-blue-gray;
+        a {
+            color: $dark-blue-gray;
+        }
+    }
+}
+.card-header {
+    background-color: $dark-blue-gray;
+    color: white;
+}
+.navbar {
+    background-color: $dark-blue-gray;
+    color: white;
+    .navbar-brand {
+        color: white;
+    }
+    .nav-link {
+        color: white;
+    }
+}
+.span-text {
+    color: white;
+}
+
+.btn-primary {
+    color: $light-gray;
+}
